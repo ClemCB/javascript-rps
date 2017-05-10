@@ -1,5 +1,9 @@
 const express = require("express"),
   bodyParser = require("body-parser"),
+  querystring = require('querystring'),
+  http = require('http'),
+  fs = require('fs'),
+  Game = require('./models/Game'),
   app = express();
 
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
@@ -10,6 +14,14 @@ app.use(express.static(__dirname + "/public"));
 
 app.get("/", function(req, res) {
   res.render("index");
+});
+
+app.get("/result", function(req, res) {
+  var game = new Game()
+  game.play(req.query.weapon)
+  console.log(game.computerChoice)
+  console.log(game.result())
+  res.render("winner", { game: game } );
 });
 
 // CURRENTLY SET UP FOR A PROMISE - WOULD PREFER A CALLBACK FUNCTION.
