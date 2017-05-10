@@ -9,8 +9,12 @@
 <body>
   <h1> Let's play... ROCK, PAPER, SCISSORS! </h1>
   <a href="/result?weapon=rock" name="rock"><img src="images/rock.png" width="200"></a>
-  <a href="/result?weapon=paper" name="paper"><img src="images/paper.png" width="200">
-  <a href="/result?weapon=scissors" name="scissors"><img src="images/scissors.png" width="200">
+  <a href="/result?weapon=paper" name="paper"><img src="images/paper.png" width="200"></a>
+  <a href="/result?weapon=scissors" name="scissors"><img src="images/scissors.png" width="200"></a><br>
+
+  <% if (game.playerScore > 0 || game.computerScore > 0) { %>
+    PLAYER SCORE: <%= game.playerScore %> VS. COMPUTER SCORE: <%= game.computerScore %>
+  <% } %>
 </body>
 
 </html>

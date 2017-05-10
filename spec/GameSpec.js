@@ -3,10 +3,16 @@
 const assert = require("assert"),
       expect = require("chai").expect,
       Computer = require('../models/Computer.js'),
-      Game = require('../models/Game.js'),
-      game = new Game();
+      Game = require('../models/Game.js');
+
+var game;
 
 describe("Game", () => {
+
+  beforeEach(function() {
+    game = new Game();
+   });
+
   it("holds rules", () => {
     expect(game.rules).to.have.property('paper')
     expect(game.rules).to.have.property('rock')
@@ -44,6 +50,20 @@ describe("Game", () => {
     game.computerChoice = "paper";
     game.playerChoice = "rock";
     expect(game.result()).to.equal("Computer Wins!");
+  });
+
+  it("keeps track of the computer score", () => {
+    game.computerChoice = "rock";
+    game.playerChoice = "scissors";
+    game.result()
+    expect(game.computerScore).to.eq(1);
+  });
+
+  it("keeps track of the player score", () => {
+    game.computerChoice = "scissors";
+    game.playerChoice = "rock";
+    game.result()
+    expect(game.playerScore).to.eq(1);
   });
 
 })

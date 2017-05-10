@@ -6,6 +6,8 @@ function Game(computer = new Computer()) {
                    paper: "rock",
                    scissors: "paper" };
     this.computer = computer;
+    this.computerScore = 0;
+    this.playerScore = 0;
 }
 
 Game.prototype.play = function (playerChoice) {
@@ -15,9 +17,13 @@ Game.prototype.play = function (playerChoice) {
 
 Game.prototype.result = function () {
   if (this.playerChoice == this.computerChoice) {
-    return "Draw!"
-  } else {
-    return this.rules[this.playerChoice] == [this.computerChoice] ? "Player Wins!" : "Computer Wins!"
+      return "Draw!"
+  } else if (this.rules[this.playerChoice] == [this.computerChoice]) {
+      this.playerScore += 1;
+      return "Player Wins!";
+    } else {
+      this.computerScore += 1;
+      return "Computer Wins!";
   }
 };
 
