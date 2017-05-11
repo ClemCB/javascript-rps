@@ -40,30 +40,64 @@ describe("Game", () => {
     expect(game.result()).to.equal("Draw!");
   });
 
-  it("returns a win if the player wins", () => {
-    game.computerChoice = "scissors";
-    game.playerChoice = "rock";
-    expect(game.result()).to.equal("Player Wins!");
+  describe("round wins", () => {
+    it("returns a win if the player wins", () => {
+      game.computerChoice = "scissors";
+      game.playerChoice = "rock";
+      expect(game.result()).to.equal("Player!");
+    });
+
+    it("returns a win if the computer wins", () => {
+      game.computerChoice = "paper";
+      game.playerChoice = "rock";
+      expect(game.result()).to.equal("Computer!");
+    });
+
+    it("keeps track of the computer score", () => {
+      game.computerChoice = "rock";
+      game.playerChoice = "scissors";
+      game.result()
+      expect(game.computerScore).to.eq(1);
+    });
+
+    it("keeps track of the player score", () => {
+      game.computerChoice = "scissors";
+      game.playerChoice = "rock";
+      game.result()
+      expect(game.playerScore).to.eq(1);
+    });
   });
 
-  it("returns a win if the player wins", () => {
-    game.computerChoice = "paper";
-    game.playerChoice = "rock";
-    expect(game.result()).to.equal("Computer Wins!");
+  describe("overall win", () => {
+
+    it("no winner yet scenario: game continues until the computer or player has won more than two games", () => {
+      game.playerScore = 1
+      game.computerScore = 1
+      expect(game.isThereAWinner()).to.eq(undefined);
+    });
+
+    it("player wins scenario: game continues until the computer or player has won more than two games", () => {
+      game.playerScore = 2
+      game.computerScore = 1
+      expect(game.isThereAWinner()).to.eq("Player Wins!");
+    });
+
+    it("computer wins scenario: game continues until the computer or player has won more than two games", () => {
+      game.playerScore = 0
+      game.computerScore = 3
+      expect(game.isThereAWinner()).to.eq("Computer Wins!");
+    });
   });
 
-  it("keeps track of the computer score", () => {
-    game.computerChoice = "rock";
-    game.playerChoice = "scissors";
-    game.result()
-    expect(game.computerScore).to.eq(1);
-  });
+  describe("restart game", () => {
 
-  it("keeps track of the player score", () => {
-    game.computerChoice = "scissors";
-    game.playerChoice = "rock";
-    game.result()
-    expect(game.playerScore).to.eq(1);
+    it("player can start the game again for a rematch", () => {
+      game.playerScore = 2
+      game.computerScore = 1
+      game.restartGame()
+      expect(game.playerScore).to.eq(0);
+      expect(game.computerScore).to.eq(0);
+    });
   });
 
 })

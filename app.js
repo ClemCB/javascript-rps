@@ -22,6 +22,11 @@ app.get("/result", function(req, res) {
   res.render("winner", { game: game } );
 });
 
+app.get("/restart", function(req, res) {
+  game.restartGame()
+  res.render("index", { game: game } );
+});
+
 app.listen(5500, function() {
   console.log("I'M LISTENING #5500!");
 });

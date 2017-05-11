@@ -20,11 +20,22 @@ Game.prototype.result = function () {
       return "Draw!"
   } else if (this.rules[this.playerChoice] == [this.computerChoice]) {
       this.playerScore += 1;
-      return "Player Wins!";
+      return "Player!";
     } else {
       this.computerScore += 1;
-      return "Computer Wins!";
+      return "Computer!";
   }
 };
+
+Game.prototype.isThereAWinner = function() {
+  if (this.computerScore + this.playerScore >= 3) {
+    return this.computerScore > this.playerScore ? "Computer Wins!" : "Player Wins!"
+  }
+}
+
+Game.prototype.restartGame = function() {
+  this.computerScore = 0
+  this.playerScore = 0
+}
 
 module.exports = Game;
