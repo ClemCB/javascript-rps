@@ -19,11 +19,11 @@ Best of 3 rounds rock, paper, scissors game for a player vs computer. You'll nev
 
 ## Approach
 
-- All model code follows modular-constructor pattern and single responsibility principle, to maintain readability and extendability.
-- Chose to use Node.JS and Express, as these are frameworks I enjoy using and am keen to deepen my understanding of.
+- All code in the model layer follows modular-constructor pattern and single responsibility principle, to maintain readability and extendability.
+- Chose to use Node.JS and Express, as these are frameworks I enjoy using and am keen to deepen my understanding of. I used Node in both my [practice](https://github.com/nryn/TallTalesTheThird) and [final](https://github.com/ClemCB/eureka-search-engine) projects at Makers. I like that it is straight forward to work to the MVC pattern and I can simply export only modules I want to use globally from each file.
 
 ## Challenges
 
-- Treating images-as-post-requests. Currently, the player choses an image of their weapon, which is treated as a Get request. The user is not able to 'cheat' the system, however, as any change to the URL results in a new turn. I would like for the user to be unable to change their weapon in the URL.
+- Treating images-as-post-requests. Currently, the player choses their weapon from an image on the index page. This action is treated as a get request. The user is unable to 'cheat' the system, as any change to the URL results in a call to the ``play`` function and therefore another round.
+- The above loophole allows the game to go beyond best-of-three. If the user were unable to modify their weapon choice in the URL, the game would end only after three rounds with points scored.
 - My current design does not easily allow for Lizard, Spock extension on the Game's rules object. I would like to adjust for this.
-- I would like to use BEM methodology for CSS. Styling is currently very limited.
