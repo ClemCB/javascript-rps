@@ -2,3 +2,34 @@ body {
   font-family: 'Amatic SC', cursive;
   text-align: center;
 }
+
+#game {
+  font-size: 110%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#score {
+  font-size: 30px;
+}
+
+#rematch {
+  width: 60px;
+  margin-right: 50%;
+  margin-left: 50%;
+  color: white;
+  font-size: 20px;
+  border-style: none;
+  background-color: black;
+  border-radius: 25px;
+  margin: 100px;
+  padding: 10px;
+  font-style: bold;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}

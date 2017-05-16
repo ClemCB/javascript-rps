@@ -7,12 +7,15 @@
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 </head>
 <body>
-  <img src="images/RockPaperScissors.jpg" width="700">
+  <div id="game">
   <h1> And the winner is... <%- game.result() %></h1>
-  You chose: <%- game.playerChoice %> and Computer chose: <%- game.computerChoice %><br>
+  <div id="score">
+  You chose: <%- game.playerChoice %> and Computer chose: <%- game.computerChoice %><p>
   Player Points: <%- game.playerScore %> V Computer Points: <%-game.computerScore %><br><br>
 
   <a href="/">Play Again</a>
+  </div>
+  </div>
 </body>
 
 </html>

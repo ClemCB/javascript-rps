@@ -7,21 +7,27 @@
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 </head>
 <body>
+  <div id="game">
   <h1> Let's play... ROCK, PAPER, SCISSORS! </h1>
 
   <% if (game.isThereAWinner() == undefined) { %>
       <h2> Best of three! </h2>
-      <a href="/result?weapon=rock" name="rock"><img src="images/rock.png" width="200"></a>
-      <a href="/result?weapon=paper" name="paper"><img src="images/paper.png" width="200"></a>
-      <a href="/result?weapon=scissors" name="scissors"><img src="images/scissors.png" width="200"></a><br>
+      <div id="score">
+        <a href="/result?weapon=rock" name="rock"><img src="images/rock.png" width="200"></a>
+        <a href="/result?weapon=paper" name="paper"><img src="images/paper.png" width="200"></a>
+        <a href="/result?weapon=scissors" name="scissors"><img src="images/scissors.png" width="200"></a><br>
 
       <% if (game.playerScore > 0 || game.computerScore > 0) { %>
-        PLAYER SCORE: <%= game.playerScore %> VS. COMPUTER SCORE: <%= game.computerScore %>
-      <% } %>
-  <% } else { %>
-      <%- game.isThereAWinner() %><br>
-      <a href="/restart">Rematch!</a>
-  <% } %>
+          PLAYER SCORE: <%= game.playerScore %> VS. COMPUTER SCORE: <%= game.computerScore %>
+        <% } %>
+      <% } else { %>
+        <div id="score">
+            <%- game.isThereAWinner() %><p>
+            <a href="/restart" id="rematch">Rematch!</a>
+        </div>
+    <% } %>
+    </div>
+  </div>
 </body>
 
 </html>
