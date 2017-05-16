@@ -17,6 +17,14 @@ Best of 3 rounds rock, paper, scissors game for a player vs computer. You'll nev
 - Node.JS
 - Express
 
+## How to Run
+
+- ``git clone`` this project directory
+- ``npm install`` to install dependencies from within the project root
+- ``npm test`` to run Mocha and Chai tests
+- Run ``nodemon`` to run rock-paper-scissors locally
+- Visit ``localhost:5500`` on your favourite browser and play many exciting rounds against the computer!
+
 ## Approach
 
 - All code in the model layer follows modular-constructor pattern and single responsibility principle, to maintain readability and extendability.
