@@ -17,6 +17,8 @@ describe("Game", () => {
     expect(game.rules).to.have.property('paper')
     expect(game.rules).to.have.property('rock')
     expect(game.rules).to.have.property('scissors')
+    expect(game.rules).to.have.property('lizard')
+    expect(game.rules).to.have.property('spock')
   });
 
   it("is aware of its players", () => {
@@ -51,6 +53,12 @@ describe("Game", () => {
       game.computerChoice = "paper";
       game.playerChoice = "rock";
       expect(game.result()).to.equal("Computer!");
+    });
+
+    it("returns a win if the computer wins", () => {
+      game.computerChoice = "lizard";
+      game.playerChoice = "rock";
+      expect(game.result()).to.equal("Player!");
     });
 
     it("keeps track of the computer score", () => {

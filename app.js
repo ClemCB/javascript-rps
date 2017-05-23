@@ -27,7 +27,7 @@ app.get("/restart", function(req, res) {
   res.render("index", { game: game } );
 });
 
-app.listen(5500, function() {
+app.listen(5550, function() {
   console.log("I'M LISTENING #5500!");
 });
 

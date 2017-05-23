@@ -4,7 +4,9 @@ const Computer = require('./Computer.js');
 function Game(computer = new Computer()) {
     this.rules = { rock: "scissors",
                    paper: "rock",
-                   scissors: "paper" };
+                   scissors: "paper",
+                   lizard: "hello",
+                   spock: "hello" };
     this.computer = computer;
     this.computerScore = 0;
     this.playerScore = 0;

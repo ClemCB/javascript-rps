@@ -7,6 +7,6 @@ const assert = require("assert"),
 describe("Weapon", () => {
   it("holds rock, paper and scissors", () => {
     var weapon = new Weapon()
-    expect(weapon.weapons).to.eql([ 'rock', 'paper', 'scissors' ]);
+    expect(weapon.weapons).to.eql([ 'rock', 'paper', 'scissors', 'lizard', 'spock' ]);
   });
 })
